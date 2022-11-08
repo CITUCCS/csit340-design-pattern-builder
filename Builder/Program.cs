@@ -1,12 +1,14 @@
-﻿using System.Text;
+﻿using Builder;
 
-var words = new[] { "hello", "world" };
-var sb = new StringBuilder();
-sb.Clear();
-sb.Append("<ul>");
-foreach (var word in words)
-{
-    sb.AppendFormat("<li>{0}</li>", word);
-}
-sb.Append("</ul>");
-Console.WriteLine(sb);
+
+var element = HtmlElement.Create("ul")
+    .AddChild("li", "hello")
+    .AddChild("li", "world")
+    .AddChild("li", "F1")
+    .AddChild("li", "F2")
+    .AddChild("li", "CCS")
+    .Build();
+
+
+
+Console.WriteLine(element);
